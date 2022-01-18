@@ -2,13 +2,12 @@
 <html>
 @extends('layouts.master')
 @section('pagetitle','koosharayan|coursespage')
-
 @section('content')
 	<body>
 
-	<div class="fh5co-loader"></div>
+	{{-- <div class="fh5co-loader"></div>
 
-	<div id="page">
+	<div id="page"> --}}
 
         @section('title')
         <h1>دوره ها</h1>
@@ -257,12 +256,12 @@ des="دیدن دوره"
 			</div>
 		</div>
 	</div>
-
+    @endsection
 
 
 
 	</div>
-@endsection
+
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>

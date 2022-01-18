@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Formcontroller;
+
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\TryCatch;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,28 +25,27 @@ Route::get('/index',[PageController::class,'ShowIndex'])->name('index');
  Route::get('/courses',[PageController::class,'ShowCourses'])->name('courses');
  Route::get('/pricing',[PageController::class,'ShowPricing'])->name('pricing');
 
+//    Route::prefix('formuser')->group( function(){
 
-// Route::get('index', function () {
-//     return view('index');
+ Route::resource('user',UserController::class);
 
-// })->name('index');
-
-//  Route::get('blog', function () {
-//         return view('blog');
-
-//     })->name('blog');
+    // });
 
 
 
-// Route::get('contact', function () {
-//    return view('contact');
+// Route::get('db',function(){
 
-// })->name('contact');
+//     Try{
+//        $result= DB::connection()->table('user')->get();
+// // dd($result);
+//      echo "connection";
+//     }
+//     catch(Exception $exception){
+// die("pleas cheack your connection".$exception->getMessage());
+//     }
+// });
 
-//    Route::get('courses', function () {
-//     return view('courses');
-//    })->name('courses');
 
-//    Route::get('pricing', function () {
-//     return view('pricing');
-//    })->name('pricing');
+
+
+

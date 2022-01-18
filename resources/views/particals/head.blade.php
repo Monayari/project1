@@ -26,22 +26,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
 
 
-	<link rel="stylesheet" href="/css/animate.css">
+	<link rel="stylesheet" href="{{asset('/css/animate.css')}}">
 
-	<link rel="stylesheet" href="/css/icomoon.css">
+	<link rel="stylesheet" href="{{asset('/css/icomoon.css')}}">
 
-	<link rel="stylesheet" href="/css/bootstrap.css">
-
-
-	<link rel="stylesheet" href="/css/magnific-popup.css">
+	<link rel="stylesheet" href="{{asset('/css/bootstrap.css')}}">
 
 
-	<link rel="stylesheet" href="/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="{{asset('/css/magnific-popup.css')}}">
 
 
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="{{asset('/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{asset('/css/owl.theme.default.min.css')}}">
 
-	<script src="/js/modernizr-2.6.2.min.js"></script>
+
+	<link rel="stylesheet" href="{{asset('/css/style.css')}}">
+
+	<script src="{{asset('/js/modernizr-2.6.2.min.js')}}"></script>
 
 </head>

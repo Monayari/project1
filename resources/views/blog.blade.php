@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4">
-           
+
                     <x-button    img="images/51.png"
                     title="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
                         text="سه شنبه 8 خرداد"
@@ -104,9 +104,7 @@
 
 	</div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
+	
 
 @endsection
 

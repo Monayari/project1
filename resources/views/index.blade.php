@@ -2,20 +2,19 @@
 
 @extends('layouts.master')
 @section('pagetitle','koosharayan|indexgpage')
-@section('content')
+
 	<body>
 
-	<div class="fh5co-loader"></div>
 
-	<div id="page">
+
 
         @section('title')
         <h1 class="h-header"> هنر اموزش هنر کمک به کشف است </h1>
-                        <h2>قالب های رایگان html5 ساخته شده توسط<a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
                         <p class="btns-header"><a class="btn btn-primary btn-lg btn-learn" href="#">یه دوره بردار! </a>
                          <a class="btn btn-primary btn-lg popup-vimeo btn-video" href="https://vimeo.com/channels/staffpicks/93951774"><i class="icon-play"></i> تماشای دوره </a></p>
                          @endsection
 
+                         @section('content')
 	<div id="fh5co-counter" class="fh5co-counters">
 		<div class="container">
 			<div class="row">
@@ -433,12 +432,12 @@ des="دیدن دوره"
                      />
 
 				</div>
-                @endsection
+
 			</div>
 		</div>
 	</div>
 
-
+    @endsection
 
 
 

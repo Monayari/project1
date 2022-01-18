@@ -271,7 +271,12 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-nav ul li.active > a {
   color: #fff !important;
 }
-
+.snd{
+  float: left !important;
+}
+.img-bg{
+  background-image: url('../images/7.jpg');
+}
 #fh5co-header,
 #fh5co-counter,
 .fh5co-bg {
@@ -873,6 +878,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .bs-wizard {
   margin-top: 40px;
+  border-bottom: 0 !important;
 }
 
 /*Form Wizard*/
