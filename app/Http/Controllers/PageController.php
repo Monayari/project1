@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -12,7 +14,7 @@ class PageController extends Controller
 
 
     }
- 
+
     public function ShowBlog(){
 
         return view('/blog');
@@ -40,5 +42,13 @@ class PageController extends Controller
 
 
     }
+ public function showraw(){
+     $users=DB::table('users')
+     ->selectRaw('count(*) ,name')
+     ->where('name','<>',10)
+->groupBy('name')
+     ->get();
 
+    return view('showindex');
+ }
 }

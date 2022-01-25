@@ -10,6 +10,7 @@
 
 
    @section('content')
+@if(Request::routeIs('index.bilder'))
 
 @if($message=Session::get('success'))
 <div class="alert alert-success">
@@ -27,7 +28,67 @@
         <th>Address</th>
         <th>Action</th>
     </tr>
+
+
     @foreach ($user as $user)
+
+
+    <tr>
+        <td>{{ $user->id }}</td>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->family }}</td>
+        <td>{{$user->phone }}</td>
+        <td>{{$user->email }}</td>
+        <td>{{$user->address }}</td>
+<td>
+            <form action="user-builder/{{$user->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+
+
+
+                <a class="btn btn-primary" href="user-builder/{{$user->id}}/edit">Edit</a>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+            </td>
+
+    </tr>
+
+
+
+    @endforeach
+</table>
+
+<div class="pull-left">
+
+    <a class="btn btn-primary" href="user-builder/create">Create</a>
+
+   </div>
+
+ @else
+
+@if($message=Session::get('success'))
+<div class="alert alert-success">
+    <p>{{$message}}</p>
+</div>
+@endif
+
+   <table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Family</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Action</th>
+    </tr>
+
+
+    @foreach ($user as $user)
+
+
     <tr>
         <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
@@ -47,11 +108,7 @@
             </form>
 
             </td>
-{{-- <td>
-    <div class="pull-left">
-        <a class="btn btn-primary" href="user/create">Create</a>
-       </div>
-</td> --}}
+
     </tr>
 
 
@@ -60,9 +117,12 @@
 </table>
 
 <div class="pull-left">
-    <a class="btn btn-primary" href="user/create">Create</a>
-   </div>
 
+    <a class="btn btn-primary" href="user/create">Create</a>
+ 
+
+   </div>
+   @endif
 @endsection
 
 
