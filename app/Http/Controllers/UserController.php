@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-       
+
         return view('user.index',[
 
             'user'=>User::all()
@@ -129,4 +129,6 @@ class UserController extends Controller
         $user->delete();
         return back()->with('success','user delete successfuly');
     }
+
+    
 }

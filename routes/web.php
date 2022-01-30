@@ -22,7 +22,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/index',[PageController::class,'ShowIndex'])->name('index');
+Route::get('/index',[PageController::class,'ShowIndex'])->name('index')->middleware('test');
  Route::get('/blog',[PageController::class,'ShowBlog'])->name('blog');
  Route::get('/contact',[PageController::class,'ShowCantact'])->name('contact');
  Route::get('/courses',[PageController::class,'ShowCourses'])->name('courses');
@@ -32,8 +32,12 @@ Route::get('/index',[PageController::class,'ShowIndex'])->name('index');
 
   Route::resource('user',UserController::class);
 
-//   Route::get('/', [LoginController::class, 'login'])->name('login');
-//   Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+   Route::prefix('softdelete')->group(function(){
+Route ::get('/showsoft',[Formcontroller::class,'trashes']);
+Route ::get('/{id}',[Formcontroller::class,'restore']);
+
+});
 
     Route::prefix('user-builder')->group(function(){
 
@@ -44,9 +48,16 @@ Route::get('/index',[PageController::class,'ShowIndex'])->name('index');
     Route::put('/{id}/edit',[UserConrtoller::class,'update'])->name('update.bilder');
     Route::delete('/{id}',[UserConrtoller::class,'destory'])->name('delete.bilder');
     Route::get('/show',[UserConrtoller::class,'show'])->name('show.blider');
+  
 
 
-  });
+
+    Route::get('/factory',[UserConrtoller::class,'creatfactoryuser'])->name('factoryuser.blider');
+    Route::get('/{id}/factory',[UserConrtoller::class,'creatfactoryblog'])->name('factoryblog.blider');
+    Route::get('/{id}/showpost',[UserConrtoller::class,'ShowPost'])->name('showpost');
+    Route::get('/{id}/profile',[UserConrtoller::class,'Createprofile'])->name('profile');
+    Route::get('/{id}/showprofile',[UserConrtoller::class,'ShowProfile'])->name('showprofile');
+});
 
 
 
@@ -58,29 +69,16 @@ Route::get('/index',[PageController::class,'ShowIndex'])->name('index');
 Route::prefix('blogs')->group(function(){
 
 Route::get('/',[blogcontroller::class,'index'])->name('blogs.index');
-Route::get('/create',[blogcontroller::class,'create'])->name('blogs.create');
-Route::post('/create',[blogcontroller::class,'store'])->name('blogs.store');
+Route::get('/{id}/create',[blogcontroller::class,'create'])->name('blogs.create');
+Route::post('/{id}/create',[blogcontroller::class,'store'])->name('blogs.store');
 Route::get('/{id}/edit',[blogcontroller::class,'edit'])->name('blogs.edit');
 Route::put('/{id}/edit',[blogcontroller::class,'update'])->name('blogs.update');
-Route::get('/{id}',[blogcontroller::class,'destory'])->name('blogs.delete');
+Route::delete('/{id}',[blogcontroller::class,'destory'])->name('blogs.delete');
+Route::get('/{id}/createtag',[blogcontroller::class,'createtag'])->name('tag');
+Route::get('/{id}/showtag',[blogcontroller::class,'ShowTag'])->name('showtag');
 
 });
 
 
 
 
-
-// Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
-// Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-// Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-// Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
-Auth::routes();
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

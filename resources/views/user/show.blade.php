@@ -4,12 +4,10 @@
 <table class="table table-bordered">
     <tr>
         <th>id</th>
-        <th>Name</th>
-        <th>Family</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
+        <th>titl</th>
         <th>body</th>
+        <th>user_id</th>
+
     </tr>
 
 
@@ -18,14 +16,12 @@
 
     <tr>
         <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->family }}</td>
-        <td>{{$user->phone }}</td>
-        <td>{{$user->email }}</td>
-        <td>{{$user->address }}</td>
-        <td>{{$user->body }}</td>
+        <td>{{ $user->title }}</td>
+        <td>{{ $user->body }}</td>
+        <td>{{$user->user_id }}</td>
+
 <td>
-            <form action="user/{{$user->id}}" method="POST">
+            <form action="user-bilder/{{$user->id}}/show" method="POST">
                 @csrf
                 @method('DELETE')
 

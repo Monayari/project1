@@ -27,7 +27,8 @@ class UsersTableSeeder extends Seeder
     //     'created_at'=>now(),
     //     'updated_at'=>now()
     //    ]);
-     User::factory()->count(10)->create();
+    //   User::factory()->count(10)->create();
+
        }
 }
 

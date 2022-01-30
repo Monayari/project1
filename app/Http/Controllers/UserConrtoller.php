@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Profile;
 use App\Models\User;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +15,7 @@ class UserConrtoller extends Controller
     public function showindex(){
 
 
-         $user=DB::table('users')->orderBy('name','ASC')
+         $user=DB::table('users')->orderBy('id','ASC')
 
          ->get();
 
@@ -94,4 +97,47 @@ class UserConrtoller extends Controller
         $user=DB::table('users')->where('id',$id)->delete();
         return back()->with('success','user delete successfuly');
     }
+
+
+
+    public function creatfactoryuser(){
+
+        User::factory()->count(10)->create();
+        return back();
+    }
+
+ 
+
+    public function creatfactoryblog($id){
+
+
+      $user=User::find($id);
+
+      $user->blog()->saveMany(Blog::factory( rand(1,3))->make());
+        return back();
+    }
+
+    public function ShowPost($id)
+    {
+
+              $user= User::find($id)->blog()->get();
+                  return view('user.showpost',['user'=>$user]);
+
+    }
+
+    public function Createprofile($id)
+    {
+        $user=User::find($id);
+        // $user=User::find($id)->profile()->save($profile);
+
+          $user->profile()->save(Profile::factory()->make());
+         return back();
+    }
+
+    public function ShowProfile($id)
+    {
+        $user= User::find($id)->profile()->get();
+        return view('user.showprofile',['user'=>$user]);
+    }
+
 }

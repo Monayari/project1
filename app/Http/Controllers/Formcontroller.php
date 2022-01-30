@@ -25,6 +25,19 @@ public function show(User $user){
 }
 
 
+public function  trashes()
+{
+    $user=User::onlyTrashed()
+    ->get();
+    return view('user.showsoft',['user'=>$user]);
+}
+
+public function restore($id)
+{
+    User::withTrashed()->find($id)->restore();
+    return back();
+}
+
     public function Store(Request $request){
 
 

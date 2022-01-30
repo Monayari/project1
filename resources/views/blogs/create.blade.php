@@ -31,7 +31,7 @@
 @endif
 
 <div>
-  <form action="/blogs/create" method="POST">
+  <form action="/blogs/{{$user->id}}/create" method="POST">
     @csrf
 
  <label for="name">title:</label>
@@ -43,6 +43,7 @@
 
 
  </form>
+ <a class="btn btn-primary" href="blogs">Show</a>
 </div>
 </div>
 @endsection

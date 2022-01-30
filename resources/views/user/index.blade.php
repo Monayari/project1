@@ -27,6 +27,7 @@
         <th>Email</th>
         <th>Address</th>
         <th>Action</th>
+        <th>Relation</th>
     </tr>
 
 
@@ -52,6 +53,12 @@
             </form>
 
             </td>
+            <td>
+                <a class="btn btn-primary" href="user-builder/{{$user->id}}/factory">Createpost</a>
+                <a class="btn btn-primary" href="user-builder/{{$user->id}}/showpost">showpost</a>
+                <a class="btn btn-info" href="user-builder/{{$user->id}}/profile">Createprofile</a>
+                <a class="btn btn-info" href="user-builder/{{$user->id}}/showprofile">Showprofile</a>
+            </td>
 
     </tr>
 
@@ -63,6 +70,7 @@
 <div class="pull-left">
 
     <a class="btn btn-primary" href="user-builder/create">Create</a>
+    <a class="btn btn-primary" href="user-builder/factory">Createuser</a>
 
    </div>
 
@@ -119,7 +127,7 @@
 <div class="pull-left">
 
     <a class="btn btn-primary" href="user/create">Create</a>
- 
+
 
    </div>
    @endif

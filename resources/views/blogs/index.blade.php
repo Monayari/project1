@@ -21,37 +21,42 @@
    <table class="table table-bordered">
     <tr>
         <th>id</th>
-        <th>Name</th>
-        <th>Family</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
+        <th>title</th>
+        <th>body</th>
+        <th>user_id</th>
+
         <th>Action</th>
+        <th>Relation</th>
     </tr>
 
 
-    @foreach ($user as $user)
+    @foreach ($blog as $blog)
 
 
     <tr>
-        <td>{{ $user->id }}</td>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->family }}</td>
-        <td>{{$user->phone }}</td>
-        <td>{{$user->email }}</td>
-        <td>{{$user->address }}</td>
+         <td>{{ $blog->id }}</td>
+        <td>{{ $blog->title }}</td>
+        <td>{{ $blog->body }}</td>
+        <td>{{$blog->user_id }}</td>
+
 <td>
-            <form action="blog.index/{{$user->id}}" method="POST">
+            <form action="blogs/{{$blog->id}}" method="POST">
                 @csrf
                 @method('DELETE')
 
 
 
-                <a class="btn btn-primary" href="user-builder/{{$user->id}}/edit">Edit</a>
+                <a class="btn btn-primary" href="blogs/{{$blog->id}}/edit">Edit</a>
                 <button type="submit" class="btn btn-danger">Delete</button>
+
             </form>
 
             </td>
+            <td>
+            <a class="btn btn-primary" href="blogs/{{$blog->id}}/createtag">Createtag</a>
+            <a class="btn btn-primary" href="blogs/{{$blog->id}}/showtag">showtag</a>
+            </td>
+
 
     </tr>
 
@@ -62,5 +67,7 @@
 
 <div class="pull-left">
 
-    <a class="btn btn-primary" href="user-builder/create">Create</a>
+    <a class="btn btn-primary" href="blogs/create">Create</a>
    </div>
+@endsection
+

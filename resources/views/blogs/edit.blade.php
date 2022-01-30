@@ -1,4 +1,4 @@
-extends('layouts.master')
+@extends('layouts.master')
 
 
  @section('pagetitle','koosharayan|editpage')
@@ -37,21 +37,18 @@ extends('layouts.master')
 </div>
 @endif
 
-  <form action="/blog.edit/{{$user->id}}/edit" method="Post">
+  <form action="/blogs/{{$blog->id}}/edit" method="Post">
     @csrf
 @method('put')
- <label for="name">Name:</label>
- <input type="text"  name="name" value="{{$user->name}}" id="name" class="form-control">
- <label for="family">Family:</label>
- <input type="text"   name="family" value="{{$user->family}}" id="family" class="form-control">
- <label for="phone">Phone:</label>
- <input type="text"  name="phone" value="{{$user->phone}}" id="phone"  class="form-control">
- <label for="email">Email:</label>
- <input type="email" name="email" value="{{$user->email}}" id="email"  class="form-control">
- <label for="address">Address:</label>
- <input type="text"   name="address" value="{{$user->address}}" id="address" class="form-control">
+<label for="name">title:</label>
+<input type="text"  name="title" value="{{$blog->title}}" id="name" class="form-control">
+<label for="family">body:</label>
+<input type="text"   name="body" id="body" value="{{$blog->body}}" class="form-control">
+
+
  <button type="submit" class="btn btn-info">update</button>
 
 
  </form>
 </div>
+@endsection
